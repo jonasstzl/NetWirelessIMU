@@ -193,6 +193,9 @@ void initPackets(uint8_t mode)
 		payload_TX2[1] = 4;
 		payload_TX2[11] = 5;
 		payload_TX2[21] = 6;
+
+		payload_TX3[0] = NODE_ID;
+		payload_TX3[1] = 7;
 	}
 }
 
@@ -300,10 +303,17 @@ int main(void)
 			BNO_Read_Quaternion(sensorId++, payload_TX2+2);
 			BNO_Read_Quaternion(sensorId++, payload_TX2+12);
 			BNO_Read_Quaternion(sensorId++, payload_TX2+22);
-			
+
 			// flush RX to enable packet sending and write data
 			nrf_flushRX();
 			nrf_writeAckData(0, payload_TX2, 30);
+
+			// packet 3
+			BNO_Read_Quaternion(sensorId++, payload_TX3+2);
+
+			// flush RX to enable packet sending and write data
+			nrf_flushRX();
+			nrf_writeAckData(0, payload_TX3, 10);
 		}
 		
 		// TODO: maybe just delay the amount of us left (10000 - TCNT1), ensure TCNT1 < 10000

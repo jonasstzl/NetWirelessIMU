@@ -24,7 +24,7 @@
 
 #define NODE_ID		0x02
 #define IMU_ID		0x01
-#define MAX_IMU_COUNT	6
+#define MAX_IMU_COUNT	7
 
 
 #endif /* CONFIG_H_ */

@@ -32,9 +32,9 @@ void BNO_Init(void)
 		i2c_stop();
 		
 		
-		_delay_ms(100);		//0.1 second delay
+		_delay_ms(500);		//0.1 second delay
 		PORTC |= _BV(6);	//Turns ON LED in Port C pin 6
-		_delay_ms(100);		//0.1 second delay
+		_delay_ms(500);		//0.1 second delay
 		PORTC &= ~(_BV(6));	//Turns OFF LED in Port C pin 6
 		PORTC &= ~(_BV(7));	//Turns OFF LED in Port C pin 7
 		
@@ -82,7 +82,7 @@ void BNO_Init(void)
 		// set axis mapping for fingers
 		if (i > 0)
 		{
-			// fingers are rotated by 90° around z-axis
+			// fingers are rotated by 90ï¿½ around z-axis
 			i2c_start_wait(BNO055_ADDRESS + I2C_WRITE);	//Set device address and write mode
 			i2c_write(BNO055_AXIS_MAP_CONFIG_ADDR);
 			i2c_write(0x21); // z -> z, y -> x, x -> -y
@@ -114,7 +114,7 @@ void BNO_Init(void)
 
 void BNO_Read_Quaternion(uint8_t id, uint8_t* buffer)
 {
-	// select sensor device (ensure id <= 5, not checked here for performance reasons)
+	// select sensor device (ensure id <= 6, not checked here for performance reasons)
 	BNO_MUX_Select(id);
 	
 	// start reading from BNO
@@ -134,7 +134,7 @@ void BNO_Read_Quaternion(uint8_t id, uint8_t* buffer)
 
 void BNO_Read_Quaternion_LinAcc(uint8_t id, uint8_t* buffer)
 {
-	// select sensor device (ensure id <= 5, not checked here for performance reasons)
+	// select sensor device (ensure id <= 6, not checked here for performance reasons)
 	BNO_MUX_Select(id);
 	
 	// start reading from BNO
@@ -162,7 +162,7 @@ void BNO_Read_Quaternion_LinAcc(uint8_t id, uint8_t* buffer)
 
 void BNO_Read_Acc_Mag_Gyr(uint8_t id, uint8_t* buffer)
 {
-	// select sensor device (ensure id <= 5, not checked here for performance reasons)
+	// select sensor device (ensure id <= 6, not checked here for performance reasons)
 	BNO_MUX_Select(id);
 	
 	i2c_start_wait(BNO055_ADDRESS + I2C_WRITE);	//Set device address and write mode
@@ -235,6 +235,13 @@ void BNO_MUX_Select(uint8_t sen_channel)
 			PORTD |= _BV(MUX_S0);		//S0 High
 			PORTD |= _BV(MUX_S1);		//S1 High
 			PORTD &= ~(_BV(MUX_S2));	//S2 Low
+			break;
+
+		//Select IMU 6	-->  Y6
+		case 6:
+			PORTD &= ~(_BV(MUX_S0));	//S0 Low
+			PORTD |= _BV(MUX_S1);		//S1 High
+			PORTD |= _BV(MUX_S2);		//S2 High
 			break;
 
 		default:
