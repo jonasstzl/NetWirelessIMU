@@ -4,6 +4,8 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
                               NRF24L01p.o (__udivmodhi4)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
                               C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega32u4/avr5/crtatmega32u4.o (exit)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+                              BNO055.o (__tablejump2__)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
                               main.o (__do_copy_data)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
@@ -132,6 +134,21 @@ Discarded input sections
                 0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.fixed
                 0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
@@ -295,51 +312,53 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xd18
+.text           0x00000000      0xd7c
  *(.vectors)
  .vectors       0x00000000       0xac C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega32u4/avr5/crtatmega32u4.o
                 0x00000000                __vector_default
                 0x00000000                __vectors
  *(.vectors)
  *(.progmem.gcc*)
-                0x000000ac                . = ALIGN (0x2)
-                0x000000ac                __trampolines_start = .
+ .progmem.gcc_sw_table.BNO_MUX_Select
+                0x000000ac        0xe BNO055.o
+                0x000000ba                . = ALIGN (0x2)
+                0x000000ba                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x000000ac        0x0 linker stubs
+ .trampolines   0x000000ba        0x0 linker stubs
  *(.trampolines*)
-                0x000000ac                __trampolines_end = .
+                0x000000ba                __trampolines_end = .
  *libprintf_flt.a:*(.progmem.data)
  *libc.a:*(.progmem.data)
  *(.progmem*)
-                0x000000ac                . = ALIGN (0x2)
+                0x000000ba                . = ALIGN (0x2)
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x000000ac                __ctors_start = .
+                0x000000ba                __ctors_start = .
  *(.ctors)
-                0x000000ac                __ctors_end = .
-                0x000000ac                __dtors_start = .
+                0x000000ba                __ctors_end = .
+                0x000000ba                __dtors_start = .
  *(.dtors)
-                0x000000ac                __dtors_end = .
+                0x000000ba                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x000000ac        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega32u4/avr5/crtatmega32u4.o
-                0x000000ac                __init
+ .init0         0x000000ba        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega32u4/avr5/crtatmega32u4.o
+                0x000000ba                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x000000ac        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega32u4/avr5/crtatmega32u4.o
+ .init2         0x000000ba        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega32u4/avr5/crtatmega32u4.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x000000b8       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
-                0x000000b8                __do_copy_data
- .init4         0x000000ce       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
-                0x000000ce                __do_clear_bss
+ .init4         0x000000c6       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
+                0x000000c6                __do_copy_data
+ .init4         0x000000dc       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
+                0x000000dc                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -350,245 +369,247 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x000000de        0x8 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega32u4/avr5/crtatmega32u4.o
+ .init9         0x000000ec        0x8 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega32u4/avr5/crtatmega32u4.o
  *(.init9)
  *(.text)
- .text          0x000000e6        0x4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega32u4/avr5/crtatmega32u4.o
-                0x000000e6                __vector_38
-                0x000000e6                __vector_22
-                0x000000e6                __vector_28
-                0x000000e6                __vector_1
-                0x000000e6                __vector_32
-                0x000000e6                __vector_34
-                0x000000e6                __vector_24
-                0x000000e6                __vector_12
-                0x000000e6                __bad_interrupt
-                0x000000e6                __vector_6
-                0x000000e6                __vector_31
-                0x000000e6                __vector_35
-                0x000000e6                __vector_39
-                0x000000e6                __vector_3
-                0x000000e6                __vector_23
-                0x000000e6                __vector_30
-                0x000000e6                __vector_25
-                0x000000e6                __vector_11
-                0x000000e6                __vector_13
-                0x000000e6                __vector_17
-                0x000000e6                __vector_19
-                0x000000e6                __vector_41
-                0x000000e6                __vector_27
-                0x000000e6                __vector_5
-                0x000000e6                __vector_33
-                0x000000e6                __vector_37
-                0x000000e6                __vector_4
-                0x000000e6                __vector_9
-                0x000000e6                __vector_2
-                0x000000e6                __vector_21
-                0x000000e6                __vector_15
-                0x000000e6                __vector_36
-                0x000000e6                __vector_29
-                0x000000e6                __vector_40
-                0x000000e6                __vector_8
-                0x000000e6                __vector_26
-                0x000000e6                __vector_14
-                0x000000e6                __vector_10
-                0x000000e6                __vector_16
-                0x000000e6                __vector_18
-                0x000000e6                __vector_20
-                0x000000e6                __vector_42
-                0x000000ea                . = ALIGN (0x2)
+ .text          0x000000f4        0x4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega32u4/avr5/crtatmega32u4.o
+                0x000000f4                __vector_38
+                0x000000f4                __vector_22
+                0x000000f4                __vector_28
+                0x000000f4                __vector_1
+                0x000000f4                __vector_32
+                0x000000f4                __vector_34
+                0x000000f4                __vector_24
+                0x000000f4                __vector_12
+                0x000000f4                __bad_interrupt
+                0x000000f4                __vector_6
+                0x000000f4                __vector_31
+                0x000000f4                __vector_35
+                0x000000f4                __vector_39
+                0x000000f4                __vector_3
+                0x000000f4                __vector_23
+                0x000000f4                __vector_30
+                0x000000f4                __vector_25
+                0x000000f4                __vector_11
+                0x000000f4                __vector_13
+                0x000000f4                __vector_17
+                0x000000f4                __vector_19
+                0x000000f4                __vector_41
+                0x000000f4                __vector_27
+                0x000000f4                __vector_5
+                0x000000f4                __vector_33
+                0x000000f4                __vector_37
+                0x000000f4                __vector_4
+                0x000000f4                __vector_9
+                0x000000f4                __vector_2
+                0x000000f4                __vector_21
+                0x000000f4                __vector_15
+                0x000000f4                __vector_36
+                0x000000f4                __vector_29
+                0x000000f4                __vector_40
+                0x000000f4                __vector_8
+                0x000000f4                __vector_26
+                0x000000f4                __vector_14
+                0x000000f4                __vector_10
+                0x000000f4                __vector_16
+                0x000000f4                __vector_18
+                0x000000f4                __vector_20
+                0x000000f4                __vector_42
+                0x000000f8                . = ALIGN (0x2)
  *(.text.*)
  .text.BNO_MUX_Select
-                0x000000ea       0x44 BNO055.o
-                0x000000ea                BNO_MUX_Select
+                0x000000f8       0x42 BNO055.o
+                0x000000f8                BNO_MUX_Select
  .text.BNO_Init
-                0x0000012e       0xe0 BNO055.o
-                0x0000012e                BNO_Init
+                0x0000013a      0x10c BNO055.o
+                0x0000013a                BNO_Init
  .text.BNO_Read_Quaternion
-                0x0000020e       0x54 BNO055.o
-                0x0000020e                BNO_Read_Quaternion
+                0x00000246       0x54 BNO055.o
+                0x00000246                BNO_Read_Quaternion
  .text.BNO_Read_Quaternion_LinAcc
-                0x00000262       0x78 BNO055.o
-                0x00000262                BNO_Read_Quaternion_LinAcc
+                0x0000029a       0x78 BNO055.o
+                0x0000029a                BNO_Read_Quaternion_LinAcc
  .text.AVR_Init
-                0x000002da       0x6c main.o
-                0x000002da                AVR_Init
+                0x00000312       0x6c main.o
+                0x00000312                AVR_Init
  .text.UART_Init
-                0x00000346       0x2c main.o
-                0x00000346                UART_Init
+                0x0000037e       0x2c main.o
+                0x0000037e                UART_Init
  .text.__vector_7
-                0x00000372       0x84 main.o
-                0x00000372                __vector_7
+                0x000003aa       0x84 main.o
+                0x000003aa                __vector_7
  .text.initPackets
-                0x000003f6       0x7e main.o
-                0x000003f6                initPackets
+                0x0000042e       0x88 main.o
+                0x0000042e                initPackets
  .text.startup.main
-                0x00000474      0x1cc main.o
-                0x00000474                main
+                0x000004b6      0x1e2 main.o
+                0x000004b6                main
  .text.nrf_getStatus
-                0x00000640       0x14 NRF24L01p.o
-                0x00000640                nrf_getStatus
+                0x00000698       0x14 NRF24L01p.o
+                0x00000698                nrf_getStatus
  .text.nrf_getIRQStatus
-                0x00000654       0x3c NRF24L01p.o
-                0x00000654                nrf_getIRQStatus
+                0x000006ac       0x3c NRF24L01p.o
+                0x000006ac                nrf_getIRQStatus
  .text.nrf_flushRX
-                0x00000690       0x14 NRF24L01p.o
-                0x00000690                nrf_flushRX
+                0x000006e8       0x14 NRF24L01p.o
+                0x000006e8                nrf_flushRX
  .text.nrf_flushTX
-                0x000006a4       0x14 NRF24L01p.o
-                0x000006a4                nrf_flushTX
+                0x000006fc       0x14 NRF24L01p.o
+                0x000006fc                nrf_flushTX
  .text.nrf_startListening
-                0x000006b8        0xc NRF24L01p.o
-                0x000006b8                nrf_startListening
+                0x00000710        0xc NRF24L01p.o
+                0x00000710                nrf_startListening
  .text.nrf_stopListening
-                0x000006c4        0x4 NRF24L01p.o
-                0x000006c4                nrf_stopListening
+                0x0000071c        0x4 NRF24L01p.o
+                0x0000071c                nrf_stopListening
  .text.nrf_getRXPipeNumber
-                0x000006c8        0xa NRF24L01p.o
-                0x000006c8                nrf_getRXPipeNumber
+                0x00000720        0xa NRF24L01p.o
+                0x00000720                nrf_getRXPipeNumber
  .text.nrf_setTXAddress
-                0x000006d2       0x3a NRF24L01p.o
-                0x000006d2                nrf_setTXAddress
+                0x0000072a       0x3a NRF24L01p.o
+                0x0000072a                nrf_setTXAddress
  .text.SPI_Read_Byte
-                0x0000070c       0x18 NRF24L01p.o
-                0x0000070c                SPI_Read_Byte
+                0x00000764       0x18 NRF24L01p.o
+                0x00000764                SPI_Read_Byte
  .text.nrf_isPoweredUp
-                0x00000724        0xa NRF24L01p.o
-                0x00000724                nrf_isPoweredUp
+                0x0000077c        0xa NRF24L01p.o
+                0x0000077c                nrf_isPoweredUp
  .text.nrf_RXFifoEmpty
-                0x0000072e        0xa NRF24L01p.o
-                0x0000072e                nrf_RXFifoEmpty
+                0x00000786        0xa NRF24L01p.o
+                0x00000786                nrf_RXFifoEmpty
  .text.nrf_dataAvailable
-                0x00000738        0xc NRF24L01p.o
-                0x00000738                nrf_dataAvailable
+                0x00000790        0xc NRF24L01p.o
+                0x00000790                nrf_dataAvailable
  .text.nrf_getPayloadLength
-                0x00000744        0xe NRF24L01p.o
-                0x00000744                nrf_getPayloadLength
+                0x0000079c        0xe NRF24L01p.o
+                0x0000079c                nrf_getPayloadLength
  .text.nrf_getDynamicPayloadLength
-                0x00000752        0x6 NRF24L01p.o
-                0x00000752                nrf_getDynamicPayloadLength
+                0x000007aa        0x6 NRF24L01p.o
+                0x000007aa                nrf_getDynamicPayloadLength
  .text.nrf_hasDynamicPayloadLength
-                0x00000758       0x24 NRF24L01p.o
-                0x00000758                nrf_hasDynamicPayloadLength
+                0x000007b0       0x24 NRF24L01p.o
+                0x000007b0                nrf_hasDynamicPayloadLength
  .text.nrf_readRXData
-                0x0000077c       0x7e NRF24L01p.o
-                0x0000077c                nrf_readRXData
+                0x000007d4       0x7e NRF24L01p.o
+                0x000007d4                nrf_readRXData
  .text.SPI_Write_Byte
-                0x000007fa       0x20 NRF24L01p.o
-                0x000007fa                SPI_Write_Byte
+                0x00000852       0x20 NRF24L01p.o
+                0x00000852                SPI_Write_Byte
  .text.nrf_powerUp
-                0x0000081a       0x26 NRF24L01p.o
-                0x0000081a                nrf_powerUp
+                0x00000872       0x26 NRF24L01p.o
+                0x00000872                nrf_powerUp
  .text.nrf_maskIRQ
-                0x00000840       0x44 NRF24L01p.o
-                0x00000840                nrf_maskIRQ
+                0x00000898       0x44 NRF24L01p.o
+                0x00000898                nrf_maskIRQ
  .text.nrf_resetIRQFlags
-                0x00000884        0x8 NRF24L01p.o
-                0x00000884                nrf_resetIRQFlags
+                0x000008dc        0x8 NRF24L01p.o
+                0x000008dc                nrf_resetIRQFlags
  .text.nrf_setModeRX
-                0x0000088c       0x16 NRF24L01p.o
-                0x0000088c                nrf_setModeRX
+                0x000008e4       0x16 NRF24L01p.o
+                0x000008e4                nrf_setModeRX
  .text.nrf_setChannel
-                0x000008a2        0xe NRF24L01p.o
-                0x000008a2                nrf_setChannel
+                0x000008fa        0xe NRF24L01p.o
+                0x000008fa                nrf_setChannel
  .text.nrf_setAddressWidth
-                0x000008b0       0x18 NRF24L01p.o
-                0x000008b0                nrf_setAddressWidth
+                0x00000908       0x18 NRF24L01p.o
+                0x00000908                nrf_setAddressWidth
  .text.nrf_setCRCLength
-                0x000008c8       0x24 NRF24L01p.o
-                0x000008c8                nrf_setCRCLength
+                0x00000920       0x24 NRF24L01p.o
+                0x00000920                nrf_setCRCLength
  .text.nrf_setRXAddress
-                0x000008ec       0x58 NRF24L01p.o
-                0x000008ec                nrf_setRXAddress
+                0x00000944       0x58 NRF24L01p.o
+                0x00000944                nrf_setRXAddress
  .text.nrf_setRetries
-                0x00000944       0x3c NRF24L01p.o
-                0x00000944                nrf_setRetries
+                0x0000099c       0x3c NRF24L01p.o
+                0x0000099c                nrf_setRetries
  .text.nrf_setPayloadLength
-                0x00000980       0x12 NRF24L01p.o
-                0x00000980                nrf_setPayloadLength
+                0x000009d8       0x12 NRF24L01p.o
+                0x000009d8                nrf_setPayloadLength
  .text.nrf_setDataRate
-                0x00000992       0x24 NRF24L01p.o
-                0x00000992                nrf_setDataRate
+                0x000009ea       0x24 NRF24L01p.o
+                0x000009ea                nrf_setDataRate
  .text.nrf_setRFOutPower
-                0x000009b6       0x20 NRF24L01p.o
-                0x000009b6                nrf_setRFOutPower
+                0x00000a0e       0x20 NRF24L01p.o
+                0x00000a0e                nrf_setRFOutPower
  .text.nrf_init
-                0x000009d6       0x44 NRF24L01p.o
-                0x000009d6                nrf_init
+                0x00000a2e       0x44 NRF24L01p.o
+                0x00000a2e                nrf_init
  .text.nrf_enableAutoAck
-                0x00000a1a       0x28 NRF24L01p.o
-                0x00000a1a                nrf_enableAutoAck
+                0x00000a72       0x28 NRF24L01p.o
+                0x00000a72                nrf_enableAutoAck
  .text.nrf_enableRXAddress
-                0x00000a42       0x28 NRF24L01p.o
-                0x00000a42                nrf_enableRXAddress
+                0x00000a9a       0x28 NRF24L01p.o
+                0x00000a9a                nrf_enableRXAddress
  .text.nrf_enableDynamicPayloadLengths
-                0x00000a6a       0x10 NRF24L01p.o
-                0x00000a6a                nrf_enableDynamicPayloadLengths
+                0x00000ac2       0x10 NRF24L01p.o
+                0x00000ac2                nrf_enableDynamicPayloadLengths
  .text.nrf_enableDynamicPayloadLength
-                0x00000a7a       0x32 NRF24L01p.o
-                0x00000a7a                nrf_enableDynamicPayloadLength
+                0x00000ad2       0x32 NRF24L01p.o
+                0x00000ad2                nrf_enableDynamicPayloadLength
  .text.nrf_enableAckPayload
-                0x00000aac       0x14 NRF24L01p.o
-                0x00000aac                nrf_enableAckPayload
+                0x00000b04       0x14 NRF24L01p.o
+                0x00000b04                nrf_enableAckPayload
  .text.nrf_disableAckPayload
-                0x00000ac0       0x10 NRF24L01p.o
-                0x00000ac0                nrf_disableAckPayload
+                0x00000b18       0x10 NRF24L01p.o
+                0x00000b18                nrf_disableAckPayload
  .text.nrf_enableDynamicAck
-                0x00000ad0       0x10 NRF24L01p.o
-                0x00000ad0                nrf_enableDynamicAck
+                0x00000b28       0x10 NRF24L01p.o
+                0x00000b28                nrf_enableDynamicAck
  .text.nrf_openDynamicRXPipe
-                0x00000ae0       0x4a NRF24L01p.o
-                0x00000ae0                nrf_openDynamicRXPipe
+                0x00000b38       0x4a NRF24L01p.o
+                0x00000b38                nrf_openDynamicRXPipe
  .text.nrf_openDynamicTXPipe
-                0x00000b2a       0x28 NRF24L01p.o
-                0x00000b2a                nrf_openDynamicTXPipe
+                0x00000b82       0x28 NRF24L01p.o
+                0x00000b82                nrf_openDynamicTXPipe
  .text.writePayload
-                0x00000b52       0x28 NRF24L01p.o
-                0x00000b52                writePayload
+                0x00000baa       0x28 NRF24L01p.o
+                0x00000baa                writePayload
  .text.SPI_Write_Bytes
-                0x00000b7a       0x2a NRF24L01p.o
-                0x00000b7a                SPI_Write_Bytes
+                0x00000bd2       0x2a NRF24L01p.o
+                0x00000bd2                SPI_Write_Bytes
  .text.nrf_writeAckData
-                0x00000ba4        0xc NRF24L01p.o
-                0x00000ba4                nrf_writeAckData
+                0x00000bfc        0xc NRF24L01p.o
+                0x00000bfc                nrf_writeAckData
  .text.SPI_Init
-                0x00000bb0       0x34 SPI.o
-                0x00000bb0                SPI_Init
+                0x00000c08       0x34 SPI.o
+                0x00000c08                SPI_Init
  .text.SPI_Write
-                0x00000be4        0xc SPI.o
-                0x00000be4                SPI_Write
+                0x00000c3c        0xc SPI.o
+                0x00000c3c                SPI_Write
  .text.i2c_init
-                0x00000bf0        0xc twimaster.o
-                0x00000bf0                i2c_init
+                0x00000c48        0xc twimaster.o
+                0x00000c48                i2c_init
  .text.i2c_start
-                0x00000bfc       0x44 twimaster.o
-                0x00000bfc                i2c_start
+                0x00000c54       0x44 twimaster.o
+                0x00000c54                i2c_start
  .text.i2c_start_wait
-                0x00000c40       0x4e twimaster.o
-                0x00000c40                i2c_start_wait
+                0x00000c98       0x4e twimaster.o
+                0x00000c98                i2c_start_wait
  .text.i2c_rep_start
-                0x00000c8e        0x4 twimaster.o
-                0x00000c8e                i2c_rep_start
+                0x00000ce6        0x4 twimaster.o
+                0x00000ce6                i2c_rep_start
  .text.i2c_stop
-                0x00000c92       0x10 twimaster.o
-                0x00000c92                i2c_stop
+                0x00000cea       0x10 twimaster.o
+                0x00000cea                i2c_stop
  .text.i2c_write
-                0x00000ca2       0x22 twimaster.o
-                0x00000ca2                i2c_write
+                0x00000cfa       0x22 twimaster.o
+                0x00000cfa                i2c_write
  .text.i2c_readAck
-                0x00000cc4       0x14 twimaster.o
-                0x00000cc4                i2c_readAck
+                0x00000d1c       0x14 twimaster.o
+                0x00000d1c                i2c_readAck
  .text.i2c_readNak
-                0x00000cd8       0x14 twimaster.o
-                0x00000cd8                i2c_readNak
+                0x00000d30       0x14 twimaster.o
+                0x00000d30                i2c_readNak
  .text.libgcc.div
-                0x00000cec       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
-                0x00000cec                __udivmodhi4
-                0x00000d14                . = ALIGN (0x2)
+                0x00000d44       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
+                0x00000d44                __udivmodhi4
+ .text.libgcc   0x00000d6c        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+                0x00000d6c                __tablejump2__
+                0x00000d78                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000d14        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x00000d14                _exit
-                0x00000d14                exit
+ .fini9         0x00000d78        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00000d78                _exit
+                0x00000d78                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -607,11 +628,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000d14        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000d78        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000d18                _etext = .
+                0x00000d7c                _etext = .
 
-.data           0x00800100        0x6 load address 0x00000d18
+.data           0x00800100        0x6 load address 0x00000d7c
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -640,8 +661,8 @@ END GROUP
                 0x00800147                payload_TX1
                 0x00800167                payload_TX2
                 0x00800187                PROVIDE (__bss_end, .)
-                0x00000d18                __data_load_start = LOADADDR (.data)
-                0x00000d1e                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000d7c                __data_load_start = LOADADDR (.data)
+                0x00000d82                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800187        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -767,5 +788,5 @@ END GROUP
 
 .debug_macro
  *(.debug_macro)
-OUTPUT(EG_Final.elf elf32-avr)
+OUTPUT(Glove.elf elf32-avr)
 LOAD linker stubs
